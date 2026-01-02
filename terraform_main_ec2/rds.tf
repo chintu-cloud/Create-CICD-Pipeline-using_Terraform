@@ -5,7 +5,7 @@ resource "aws_db_instance" "rds" {
   engine                 = "mysql"
   engine_version         = "8.0.32"
   instance_class         = "db.t3.micro"
-  multi_az               = true
+  multi_az               = false
   db_name                = "mydb"
   username               = "admin"
   password               = "chandan@1234"
@@ -13,7 +13,7 @@ resource "aws_db_instance" "rds" {
   vpc_security_group_ids = [aws_security_group.security-group.id]
   depends_on = [ aws_db_subnet_group.sub-grp ]
   publicly_accessible = true
-  backup_retention_period = 7
+  backup_retention_period = 1
 
   
   tags = {
